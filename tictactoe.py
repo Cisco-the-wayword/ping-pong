@@ -1,6 +1,12 @@
 from turtle import *
 
-from freegames import line
+def line(x1, y1, x2, y2):
+    """Draw a line from (x1, y1) to (x2, y2)."""
+    up()
+    goto(x1, y1)
+    down()
+    goto(x2, y2)
+    up()
 
 def grid():
     """Draw tic-tac-toe grid."""
