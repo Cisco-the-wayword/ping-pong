@@ -1,21 +1,24 @@
 from random import choice, random
 from turtle import *
 
-from freegames import vector
+class Vector:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
 
+    def move(self, other):
+        self.x += other.x
+        self.y += other.y
 
 def value():
     return (3 + random() * 2) * choice([1, -1])
 
-
-ball = vector(0, 0)
-aim = vector(value(), value())
+ball = Vector(0, 0)
+aim = Vector(value(), value())
 state = {1: 0, 2: 0}
-
 
 def move(player, change):
     state[player] += change
-
 
 def rectangle(x, y, width, height):
     up()
@@ -28,7 +31,6 @@ def rectangle(x, y, width, height):
         forward(height)
         left(90)
     end_fill()
-
 
 def draw():
     clear()
@@ -66,7 +68,6 @@ def draw():
             return
 
     ontimer(draw, 50)
-
 
 setup(420, 420, 370, 0)
 hideturtle()
